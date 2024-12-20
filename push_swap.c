@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:16:21 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/20 15:39:14 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:39:12 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,56 +37,56 @@ char *cpy(char *str)
 }
 
 
-    // void	ft_lstadd_front(t_link **lst, t_link *new)
-    // {
-    // 	if (lst || new)
-    // 	{
-    // 		new->next = *lst;
-    // 		*lst = new;
-    // 	}
-    // }
-
-
 int main()
 {
-    // t_link *node;
+    t_link *node;
     t_link *node2;
-    // t_link *node3;
-    // node->content = malloc(sizeof(t_link));
-    // node->next = NULL;
-    // node->prev = NULL;
+    t_link *node3;
     
-    node2->content = malloc(sizeof(t_link));
-    if (!node2->content)
-        return (NULL);
-    // node2->next = NULL;
-    // node2->prev = NULL;
-
-    // node3->content = malloc(sizeof(t_link));
-    // node3->next = NULL;
-    // node3->prev = NULL;
-
-    // node->content = cpy("hello");
+    node = malloc(sizeof(t_link));
+    node->content = cpy("hello");
+    
+    node2 = malloc(sizeof(t_link));
     node2->content = cpy("hello2");
-    // node3->content = cpy("hello3");
 
-    // ft_lstadd_front(&node,node2);
-    // ft_lstadd_front(&node,node3);
-
+    node3 = malloc(sizeof(t_link));
+    node3->content = cpy("hello3");
 
 
-    printf("%s\n",(char*)node2->content);
+    node->next = node2;
+    node2->next = node3;
+    node3->next = node;
+;
+    node->prev = node3;
+    node2->prev = node;
+    node3->prev = node2;
+
+
+    printf("node 1\n");
+    printf("%s\n", (char*)node->content);
+
+    printf("%s\n",(char*)node->next->content);
+
+    printf("%s\n",(char*)node->prev->content);
+
+    printf("node 2\n");    
+    printf("%s\n", (char*)node2->content);
+
+    printf("%s\n",(char*)node2->next->content);
+
+    printf("%s\n",(char*)node2->prev->content);
     
-    // if (node2->next = NULL)
-    //     printf("NULL");
-    // else
-    //     printf("%s\n",(char*)node2->next);
-        
-    // if (node2->prev = NULL)
-    //     printf("NULL");
-    // else
-    //     printf("%s\n",(char*)node2->prev);
-    
-    
-    
+    printf("node 3\n");
+    printf("%s\n", (char*)node3->content);
+
+    printf("%s\n",(char*)node3->next->content);
+
+    printf("%s\n",(char*)node3->prev->content);
+
+    free(node->content);
+    free(node);
+    free(node2->content);
+    free(node2);
+    free(node3->content);
+    free(node3);
 }
