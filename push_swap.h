@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:16:44 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/20 14:38:21 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:05:56 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 typedef struct s_link
 {
     void    *content;
-    struct link_bef_aft *next;
-    struct link_bef_aft *prev;
+    struct s_link *next;
+    struct s_link *prev;
 }   t_link;
 
 #endif
