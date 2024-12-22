@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:50:48 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/22 16:01:17 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:57:28 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,34 +26,40 @@ int main(int argc, char **argv)
 
 // -------------------------------------------------
 
-    // swap(&node,&node2);
-    // pushb(&stack_a,&stack_b);
+    pa_pb(&stack_a,&stack_b);
+    pa_pb(&stack_a,&stack_b);
+    pa_pb(&stack_a,&stack_b);
+    pa_pb(&stack_a,&stack_b);
+    pa_pb(&stack_b,&stack_a);
 
+    ss(&stack_b,&stack_a);
 
 // -------------------------------------------------
     printf("----STACK A----\n");
+    t_link *break_a = stack_a;
     if (stack_a !=NULL)
-    {   
-        int j = 1;
-        while (j < argc)
-        {   
+    {
+        while (1)
+        {
             printf(" %s |",(char *)stack_a->content);
             stack_a = stack_a->next;
-            j++;
+            if(stack_a == break_a)
+                break;
         }
     }
     else
         printf("STACK A EMPTY\n\n\n");
 
     printf("\n----STACK B----\n");
+    t_link *break_b = stack_b;
     if (stack_b !=NULL)
     {   
-        int j = 1;
-        while (j < argc)
+        while (1)
         {   
             printf("%s |",(char *)stack_b->content);
             stack_b = stack_b->next;
-            j++;
+            if(stack_b == break_b)
+                break;
         }
     }
     else
