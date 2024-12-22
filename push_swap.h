@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:16:44 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/20 16:05:56 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:33:38 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,10 @@ typedef struct s_link
     struct s_link *next;
     struct s_link *prev;
 }   t_link;
+
+void pushb(t_link **froma,t_link **tob);
+void swap(t_link **first,t_link **second);
+char *cpy(char *str);
+void    add_to_a(t_link **stack_a,int argc, char **argv);
 
 #endif
