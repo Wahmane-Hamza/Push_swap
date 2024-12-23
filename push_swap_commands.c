@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:33:58 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/22 20:41:46 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:35:56 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,13 @@ void add_to_a(t_link **stack_a, int argc, char **argv)
     }
 }
 
-void    first_last(t_link **stack)
+void    fi_lst_or_lst_fi(t_link **stack,char type)
 {
+    if (type == 'f')
+        *stack = (*stack)->next;
+    else if (type == 'l')
+        *stack = (*stack)->prev;
+    else
+        return ;
     
 }
