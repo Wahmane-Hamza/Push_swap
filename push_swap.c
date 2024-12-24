@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:16:21 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/23 16:35:38 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/24 16:27:13 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void ss(t_link **stack_a,t_link **stack_b)
 
 void pa_pb(t_link **first,t_link **second)
 {
-    if (!(*first) || !(*second))
+    if (!(*first))
         return ;
     push_a_b(first,second);
 }

@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:33:58 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/23 14:35:56 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/24 17:59:06 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,16 @@ void push_a_b(t_link **stack_a,t_link **stack_b)
 
 void add_to_a(t_link **stack_a, int argc, char **argv) 
 {
-    int i;
     t_link *new;
 
-    i = 1;
-    while (i < argc) 
+
+    while (argc >= 0)
     {
-        if (!check_int(argv[i]))
+        if (!check_int(argv[argc]))
             return ;
-        new = create_cpy(argv[i]);
+        new = create_cpy(argv[argc]);
         change_link(stack_a, &new);
-        i++;
+        argc--;
     }
 }
 

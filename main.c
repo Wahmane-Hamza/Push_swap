@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:50:48 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/23 15:59:05 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/24 16:29:47 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,25 @@
 
 int main(int argc, char **argv)
 {
-    
 // -------------------------------------------------
     t_link *stack_a;
-    stack_a = NULL;
-    add_to_a(&stack_a,argc,argv);
-    
-// -------------------------------------------------
+    stack_a = NULL; 
+
     t_link *stack_b;
     stack_b = NULL;
+    
+// -------------------------------------------------
+    if (argc < 2)
+        return (0);
+    else if (argc == 2)
+    {
+        argv = ft_split(argv[1],' ');
+        argc = 0;
+        while (argv[argc])
+            argc++;    
+    }
+    add_to_a(&stack_a,argc - 1,argv);
+
 
 // -------------------------------------------------
 
@@ -32,9 +42,9 @@ int main(int argc, char **argv)
     pa_pb(&stack_a,&stack_b);
 
     // ss(&stack_b,&stack_a);
-    // ra_rb_rra_rrb(&stack_a,'l');
-    // ra_rb_rra_rrb(&stack_b,'l');
-    // rr_rrr(&stack_a,&stack_b,'l');
+    // ra_rb_rra_rrb(&stack_a,'f');
+    // ra_rb_rra_rrb(&stack_b,'f');
+    // rr_rrr(&stack_a,&stack_b,'f');
 // -------------------------------------------------
     printf("----STACK A----\n");
     t_link *break_a = stack_a;
