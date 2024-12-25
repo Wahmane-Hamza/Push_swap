@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:33:58 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/24 17:59:06 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/25 15:43:28 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,29 @@ void push_a_b(t_link **stack_a,t_link **stack_b)
 void add_to_a(t_link **stack_a, int argc, char **argv) 
 {
     t_link *new;
-
+    t_link  *break_a;
+    t_link  *break_c;
+    int     check;
 
     while (argc >= 0)
     {
         if (!check_int(argv[argc]))
             return ;
-        new = create_cpy(argv[argc]);
+        new = create_cpy(ft_atoi(argv[argc]));
         change_link(stack_a, &new);
         argc--;
     }
+    break_a = *stack_a;
+    while (1)
+    {
+        check = (*stack_a)->content;
+        while (break_a != stack_a)
+        {
+            
+        }
+        
+    }
+    
 }
 
 void    fi_lst_or_lst_fi(t_link **stack,char type)
