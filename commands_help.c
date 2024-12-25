@@ -6,35 +6,24 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 17:51:54 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/24 16:11:43 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/25 15:25:17 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_link *create_cpy(char *str)
+t_link *create_cpy(int num)
 {
-    int j;
-    char *content;
+    int *content;
     t_link *new;
-    int i;
 
-    j = 0;
-    while (str[j])
-        j++;
     new = malloc(sizeof(t_link));
     if (!new)
         return (NULL);
-    content = malloc(j + 1);
+    content = malloc(2 * sizeof(int));
     if (!content)
         return (free(new),NULL);
-    i = 0;
-    while (str[i])
-    {
-        content[i] = str[i];
-        i++;
-    }
-    content[i]='\0';
+    *content= num;
     new->content = content;
     return (new);
 }
