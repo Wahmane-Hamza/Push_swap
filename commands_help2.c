@@ -6,49 +6,64 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 15:21:48 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/25 15:31:40 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:53:43 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_error(char *str)
 {
-	unsigned char	c2;
-	int				slen;
-
-	slen = ft_strlen(s);
-	c2 = c;
-	while (slen >= 0)
-	{
-		if (s[slen] == c2)
-			return ((char *)&s[slen]);
-		slen--;
-	}
-	return (NULL);
+	write(2, str, ft_strlen(str));
+	exit(1);
 }
 
-int	ft_atoi(const char *str)
+void free_stack(t_link **stack)
 {
-	int	i;
-	int	k;
-	int	sign;
+    t_link *current;
+    t_link *next_node;
 
-	i = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	sign = 1;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = sign * -1;
-		i++;
-	}
-	k = 0;
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{
-		k = (k * 10) +(str[i] - 48);
-		i++;
-	}
-	return (k * sign);
+    if (!stack || !(*stack))
+        return;
+    current = *stack;
+
+    while (1)
+    {
+        next_node = current->next;   
+        free(current);               
+        if (next_node == *stack)   
+            break;
+        current = next_node;         
+    }
+    *stack = NULL;                    
 }
+
+void	*ft_strrchr(t_link **stack_a)
+{
+	t_link  *break_a;
+    t_link  *break_c;
+    t_link  *stack_bef;
+    int     check;
+
+	break_a = *stack_a;
+    while (1)
+    {
+        check = (*stack_a)->content;
+        break_c = *stack_a;
+        *stack_a = (*stack_a)->next;
+        stack_bef = *stack_a;
+        while (break_c != *stack_a)
+        {
+            if (check == (*stack_a)->content)
+            {
+                free_stack(stack_a);
+                return (NULL);
+            }
+            *stack_a = (*stack_a)->next;
+        }
+        *stack_a = stack_bef;
+        if (break_a == *stack_a)
+            break;
+    }
+}
+

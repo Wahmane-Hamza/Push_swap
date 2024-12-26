@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:50:48 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/25 15:33:51 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:59:14 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,6 @@ int main(int argc, char **argv)
     }
     add_to_a(&stack_a,argc - 1,argv);
 
-
-// -------------------------------------------------
-
-    pa_pb(&stack_a,&stack_b);
-    pa_pb(&stack_a,&stack_b);
-    pa_pb(&stack_a,&stack_b);
-    pa_pb(&stack_a,&stack_b);
-
-    // ss(&stack_b,&stack_a);
-    // ra_rb_rra_rrb(&stack_a,'f');
-    // ra_rb_rra_rrb(&stack_b,'f');
-    // rr_rrr(&stack_a,&stack_b,'f');
 // -------------------------------------------------
     printf("----STACK A----\n");
     t_link *break_a = stack_a;
@@ -52,7 +40,7 @@ int main(int argc, char **argv)
     {
         while (1)
         {
-            printf(" %d |",*(int *)stack_a->content);
+            printf(" %d |",stack_a->content);
             stack_a = stack_a->next;
             if(stack_a == break_a)
             {
@@ -70,7 +58,7 @@ int main(int argc, char **argv)
     {   
         while (1)
         {   
-            printf(" %d |",*(int *)stack_b->content);
+            printf(" %d |",stack_b->content);
             stack_b = stack_b->next;
             if(stack_b == break_b)
                 break;
