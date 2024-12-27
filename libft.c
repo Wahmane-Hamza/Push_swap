@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 18:52:28 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/26 19:00:24 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:07:43 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,33 @@ size_t	ft_strlen(const char *str)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	k;
-	int	sign;
+	t_data	data;
 
-	i = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	sign = 1;
-	if (str[i] == '-' || str[i] == '+')
+	data.i = 0;
+	data.sign = 1;
+	data.result = 0;
+	if ((str[0] == '-' && str[1] == '\0') || (str[0] == '+' && str[1] == '\0'))
+		ft_error("Error\n");
+	if (str[data.i] == '-' || str[data.i] == '+')
 	{
-		if (str[i] == '-')
-			sign = sign * -1;
-		i++;
+		if (str[data.i] == '-')
+			data.sign = -1;
+		data.i++;
 	}
-	k = 0;
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	while ((str[data.i] >= '0' && str[data.i] <= '9'))
 	{
-		k = (k * 10) +(str[i] - 48);
-		i++;
+		data.result = data.result * 10 + (str[data.i] - '0');
+		data.i++;
 	}
-	return (k * sign);
+	if (str[data.i])
+		ft_error("Error\n");
+
+
+	
+	data.result *= data.sign;
+	if (data.result > 2147483647 || data.result < -2147483648)
+		ft_error("Error\n");
+	return (data.result);
 }
 
 char	*ft_strdup(char *s1)
@@ -91,5 +97,32 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 	}
 	ptr[i] = '\0';
+	
 	return ((char *)ptr);
+}
+
+char	*ft_strjoin(char *stack, char *buffer)
+{
+	char	*str;
+	size_t	j;
+	size_t	i;
+	size_t	stack_len;
+	size_t	buffer_len;
+
+	ft_check_str(buffer);
+	stack_len = ft_strlenn(stack);
+	buffer_len = ft_strlenn(buffer);
+	i = -1;
+	str = malloc(stack_len + buffer_len + 2);
+	if (!str)
+		ft_error("strjoinn allocation faild");
+	while (++i < stack_len && stack)
+		str[i] = stack[i];
+	str[i] = '\0';
+	j = -1;
+	while (++j < buffer_len)
+		str[i + j] = buffer[j];
+	str[i + j] = ' ';
+	str[i + j + 1] = '\0';
+	return (free(stack), str);
 }

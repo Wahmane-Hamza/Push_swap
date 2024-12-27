@@ -6,12 +6,11 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:33:58 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/26 18:53:10 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:51:32 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void swap(t_link **stack)
 {
@@ -60,27 +59,6 @@ void push_a_b(t_link **stack_a,t_link **stack_b)
     }
 }
 
-void *add_to_a(t_link **stack_a, int argc, char **argv) 
-{
-    t_link *new;
-    t_data  data;
-    int     *num;
-
-    data.num_node = 0;
-    while (argc > 0)
-    {
-        if (!check_int(argv[argc]))
-            return (NULL);
-        new = create_cpy(ft_atoi(argv[argc]));
-        data.num_node++;
-        change_link(stack_a, &new);
-        argc--;
-    }
-    if(!ft_strrchr(stack_a))
-        return (NULL);
-    sort_stack(stack_a,data.num_node);
-}
-
 void    fi_lst_or_lst_fi(t_link **stack,char type)
 {
     if (type == 'f')
@@ -90,4 +68,41 @@ void    fi_lst_or_lst_fi(t_link **stack,char type)
     else
         return ;
     
+}
+
+int	check_if_sort(t_link *stack)
+{
+    t_data data;
+    t_link	*current;
+
+
+	if (data.num_node < 1)
+		return (1);
+	current = stack;
+	while (current->next != stack)
+	{
+		if (stack->content > stack->next->content)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+t_data	array_to_stack(t_link **stack_a,t_data data)
+{
+	int	i;
+    t_link *new;
+
+	i = 0;
+	data.array = malloc(data.y * sizeof(int));
+	if (!data.array)
+		ft_error("Error : data.array allocation faild");
+	while (i < data.y)
+	{
+		new = create_cpy(ft_atoi(data.split[i]));
+        change_link(stack_a, &new);
+		data.array[i] = ft_atoi(data.split[i]);
+		i++;
+	}
+	return (data);
 }

@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 15:21:48 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/26 18:53:43 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:04:29 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,63 @@ void	ft_error(char *str)
 {
 	write(2, str, ft_strlen(str));
 	exit(1);
+}
+
+t_data	put_on_it(char **av)
+{
+	t_data	data;
+	int		i;
+
+	i = 1;
+	data.args = NULL;
+	while (av[i])
+	{
+		data.args = ft_strjoin(data.args, av[i]);
+		i++;
+	}
+	data.split = ft_split(data.args, ' ');
+	data = check_all(data);
+	return (data);
+}
+
+void	check_long(char *str)
+{
+	int	o;
+	int	i;
+
+	o = 0;
+	i = 0;
+	while (str[o] == '0')
+		o++;
+	while (str[i])
+		i++;
+	if (i - o > 11)
+		ft_error("Error\n");
+}
+
+t_data	check_all(t_data data)
+{
+	long	x;
+	long	i;
+
+	i = 0;
+	data.y = 0;
+	while (data.split[data.y])
+	{
+		check_long(data.split[data.y]);
+		x = ft_atoi(data.split[data.y]);
+		i = data.y;
+		while (data.split[i])
+		{
+			if (data.split[i + 1] == NULL)
+				break ;
+			if (x == ft_atoi(data.split[i + 1]))
+				ft_error("Error\n");
+			i++;
+		}
+		data.y++;
+	}
+	return (data);
 }
 
 void free_stack(t_link **stack)
@@ -38,32 +95,5 @@ void free_stack(t_link **stack)
     *stack = NULL;                    
 }
 
-void	*ft_strrchr(t_link **stack_a)
-{
-	t_link  *break_a;
-    t_link  *break_c;
-    t_link  *stack_bef;
-    int     check;
 
-	break_a = *stack_a;
-    while (1)
-    {
-        check = (*stack_a)->content;
-        break_c = *stack_a;
-        *stack_a = (*stack_a)->next;
-        stack_bef = *stack_a;
-        while (break_c != *stack_a)
-        {
-            if (check == (*stack_a)->content)
-            {
-                free_stack(stack_a);
-                return (NULL);
-            }
-            *stack_a = (*stack_a)->next;
-        }
-        *stack_a = stack_bef;
-        if (break_a == *stack_a)
-            break;
-    }
-}
 

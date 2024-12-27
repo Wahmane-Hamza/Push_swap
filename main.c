@@ -6,32 +6,31 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:50:48 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/26 18:59:14 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:56:10 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-// -------------------------------------------------
-    t_link *stack_a;
-    stack_a = NULL; 
+	t_data	data;
+	t_link	*stack_a;
+	t_link	*stack_b;
+	int		i;
 
-    t_link *stack_b;
-    stack_b = NULL;
-    
-// -------------------------------------------------
-    if (argc < 2)
-        return (0);
-    else if (argc == 2)
-    {
-        argv = ft_split(argv[1],' ');
-        argc = 0;
-        while (argv[argc])
-            argc++;    
-    }
-    add_to_a(&stack_a,argc - 1,argv);
+	i = 0;
+	if (ac < 2)
+		return (0);
+	stack_a = NULL;
+	stack_b = NULL;
+	data = put_on_it(av);
+	data = array_to_stack(&stack_a, data);
+	if (!check_if_sort(stack_a))
+		return (0);
+	data = bubble_sort(data);
+	sort_stack(data, &stack_a, &stack_b);
+	// exit (0);
 
 // -------------------------------------------------
     printf("----STACK A----\n");
