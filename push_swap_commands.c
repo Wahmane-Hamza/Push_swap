@@ -6,113 +6,57 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:33:58 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 17:43:53 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 18:30:25 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(t_link **stack)
+void sa_sb(t_link **stack,int flag)
 {
-	t_link	*first;
-	t_link	*second;
-
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	first = *stack;
-	second = first->next;
-	if (second->next == first)
-	{
-		first->next = second;
-		first->prev = second;
-		second->next = first;
-		second->prev = first;
-		*stack = second;
-		return;
-	}
-	first->next = second->next;
-	first->prev = second;
-	second->next->prev = first;
-	second->next = first;
-	second->prev = last(*stack);
-	second->prev->next = second;
-	*stack = second;
+    if (!(*stack))
+        ft_error("ERROR STACK EMPTY");
+    if (flag == 1)
+        write(1,"sa\n",3);
+    else if (flag == 2)
+        write(1,"sb\n",3);
+    swap(stack);
 }
 
-void push_a_b(t_link **f_stack,t_link **s_stack)
+void ss(t_link **stack_a,t_link **stack_b)
 {
-    t_link *topa;
-
-    topa = *f_stack;
-    if (*f_stack != NULL)
-    {
-        if((*f_stack)->next != *f_stack)
-        {
-            *f_stack = (*f_stack)->next;
-            (*f_stack)->prev = topa->prev;
-            topa->prev->next = *f_stack;
-        }
-        else
-            *f_stack = NULL;
-        
-        change_link(s_stack, &topa, 'f');
-    }
+    if (!(*stack_a) || !(*stack_b))
+        ft_error("ERROR STACK_A OR STACK_B EMPTY");
+    swap(stack_a);
+    swap(stack_b);
 }
 
-void    fi_lst_or_lst_fi(t_link **stack,char type, int flag)
+void pa_pb(t_link **first,t_link **second, int flag)
 {
-    if (type == 'f')
-    {
-		*stack = (*stack)->next;
-		if (flag == 1)
-    		write(1,"ra\n",3);
-    	else if (flag == 2)
-    		write(1,"rb\n",3);
-	}
-    else if (type == 'l')
-	{
-        *stack = (*stack)->prev;
-		if (flag == 1)
-    		write(1,"rra\n",4);
-    	else if (flag == 2)
-    		write(1,"rrb\n",4);
-	}
-    else
-        return ;
+    if (!(*first))
+        ft_error("ERROR STACK_A OR STACK_B EMPTY");
+    if (flag == 1)
+        write(1,"pa\n",3);
+    else if (flag == 2)
+        write(1,"pb\n",3);
+    push_a_b(first,second);
 }
 
-int	check_if_sort(t_link *stack)
+void    ra_rb_rra_rrb(t_link **stack,char type,int flag)
 {
-    t_link	*current;
-
-    if (!stack || stack->next == stack)
-        return (1);
-
-    current = stack;
-    while (current->next != stack)
-	{
-        if (current->content > current->next->content)
-            return (0);
-        current = current->next;
-    }
-    return (1);
+    if (!(stack))
+        ft_error("ERROR STACK EMPTY");
+    fi_lst_or_lst_fi(stack,type,flag);
 }
 
-t_data	array_to_stack(t_link **stack_a,t_data data)
+void    rr_rrr(t_link **stack_a,t_link **stack_b,char type,int flag)
 {
-	int	i;
-    t_link *new;
-
-	i = 0;
-	data.array = malloc(data.y * sizeof(int));
-	if (!data.array)
-		ft_error("Error : data.array allocation faild");
-	while (i < data.y)
-	{
-		new = ft_lstnew(ft_atoi(data.split[i]));
-        change_link(stack_a, &new, 'b');
-		data.array[i] = ft_atoi(data.split[i]);
-		i++;
-	}
-	return (data);
+    if (!(stack_a) || !(stack_b))
+        ft_error("ERROR STACK_A OR STACK_B EMPTY");
+    fi_lst_or_lst_fi(stack_a, type, 0);
+    fi_lst_or_lst_fi(stack_b, type, 0);
+    if (type = 'f' && flag == 1)
+        write(1,"rr\n",3);
+    else if (type = 'l' && flag == 1)
+        write(1,"rrr\n",3);
 }

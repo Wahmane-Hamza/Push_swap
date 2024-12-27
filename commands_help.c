@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 17:51:54 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 18:09:19 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 18:23:26 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,32 +106,3 @@ void	check_revers(t_link **stack_a)
 	else
 		ra_rb_rra_rrb(stack_a, 'f', 1);
 }
-
-// void	*ft_strrchr(t_link **stack_a)
-// {
-// 	t_link  *break_a;
-//     t_link  *break_c;
-//     t_link  *stack_bef;
-//     int     check;
-
-// 	break_a = *stack_a;
-//     while (1)
-//     {
-//         check = (*stack_a)->content;
-//         break_c = *stack_a;
-//         *stack_a = (*stack_a)->next;
-//         stack_bef = *stack_a;
-//         while (break_c != *stack_a)
-//         {
-//             if (check == (*stack_a)->content)
-//             {
-//                 free_stack(stack_a);
-//                 return (NULL);
-//             }
-//             *stack_a = (*stack_a)->next;
-//         }
-//         *stack_a = stack_bef;
-//         if (break_a == *stack_a)
-//             break;
-//     }
-// }

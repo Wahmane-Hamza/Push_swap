@@ -6,57 +6,69 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:16:21 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 17:21:36 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 18:34:12 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sa_sb(t_link **stack,int flag)
+void    printt(t_link **stack_a,t_link **stack_b)
 {
-    if (!(*stack))
-        ft_error("ERROR STACK EMPTY");
-    if (flag == 1)
-        write(1,"sa\n",3);
-    else if (flag == 2)
-        write(1,"sb\n",3);
-    swap(stack);
+    printf("----STACK A----\n");
+    t_link *break_a = *stack_a;
+    if (*stack_a !=NULL)
+    {
+        while (1)
+        {
+            printf(" %d |",(*stack_a)->content);
+            (*stack_a) = (*stack_a)->next;
+            if(*stack_a == break_a)
+            {
+                // printf(" %s |",(char *)stack_a->content);
+                break;
+            }   
+        }
+    }
+    else
+        printf("STACK A EMPTY\n\n\n");
+
+    printf("\n----STACK B----\n");
+    t_link *break_b = (*stack_b);
+    if ((*stack_b) !=NULL)
+    {   
+        while (1)
+        {   
+            printf(" %d |",(*stack_b)->content);
+            (*stack_b) = (*stack_b)->next;
+            if((*stack_b) == break_b)
+                break;
+        }
+    }
+    else
+        printf("STACK B EMPTY\n");
 }
 
-void ss(t_link **stack_a,t_link **stack_b)
+int main(int ac, char **av)
 {
-    if (!(*stack_a) || !(*stack_b))
-        ft_error("ERROR STACK_A OR STACK_B EMPTY");
-    swap(stack_a);
-    swap(stack_b);
-}
+	t_data	data;
+	t_link	*stack_a;
+	t_link	*stack_b;
+	int		i;
 
-void pa_pb(t_link **first,t_link **second, int flag)
-{
-    if (!(*first))
-        ft_error("ERROR STACK_A OR STACK_B EMPTY");
-    if (flag == 1)
-        write(1,"pa\n",3);
-    else if (flag == 2)
-        write(1,"pb\n",3);
-    push_a_b(first,second);
-}
-
-void    ra_rb_rra_rrb(t_link **stack,char type,int flag)
-{
-    if (!(stack))
-        ft_error("ERROR STACK EMPTY");
-    fi_lst_or_lst_fi(stack,type,flag);
-}
-
-void    rr_rrr(t_link **stack_a,t_link **stack_b,char type,int flag)
-{
-    if (!(stack_a) || !(stack_b))
-        ft_error("ERROR STACK_A OR STACK_B EMPTY");
-    fi_lst_or_lst_fi(stack_a, type, 0);
-    fi_lst_or_lst_fi(stack_b, type, 0);
-    if (type = 'f' && flag == 1)
-        write(1,"rr\n",3);
-    else if (type = 'l' && flag == 1)
-        write(1,"rrr\n",3);
+	i = 0;
+	if (ac < 2)
+		return (0);
+	stack_a = NULL;
+	stack_b = NULL;
+	data = put_on_it(av);
+	data = array_to_stack(&stack_a, data);
+	if (check_if_sort(stack_a))
+	{
+        printt(&stack_a,&stack_b);
+        return (0);
+    }	
+	data = bubble_sort(data);
+	sort_stack(data, &stack_a, &stack_b);
+    printt(&stack_a,&stack_b);
+	exit (0);
 }
