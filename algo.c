@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:53:15 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 17:56:28 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 18:08:18 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@ void	full_sort(t_data data, t_link **stack_a, t_link **stack_b)
 	{
 		if (r + i >= data.y)
 			r = data.y - i - 1;
-		if ((*stack_a)->content > data.array[i]
+		if ((*stack_a)->content >= data.array[i]
 			&& (*stack_a)->content <= data.array[r + i])
 		{
 			pa_pb(stack_a,stack_b, 2);
 			check_swap(stack_b);
 			i++;
 		}
-		else if ((*stack_a)->content <= data.array[i])
+		else if ((*stack_a)->content < data.array[i])
 		{
 			pa_pb(stack_a,stack_b, 2);
 			ra_rb_rra_rrb(stack_b, 'f', 2);

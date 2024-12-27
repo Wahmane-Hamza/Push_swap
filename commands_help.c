@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 17:51:54 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 17:53:02 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 18:09:19 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	check_revers(t_link **stack_a)
 	i = 0;
 	tmp = *stack_a;
 	len = lstsize(*stack_a);
-	while ((tmp)->next)
+	while ((tmp)->next != *stack_a)
 	{
 		if ((tmp)->content > (tmp)->next->content)
 			i++;
