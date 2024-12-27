@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 18:52:28 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 11:07:43 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:25:41 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t	len;
+	size_t	i;
 
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+		i++;
+	return (i);
 }
 
 int	ft_atoi(const char *str)
@@ -110,8 +112,8 @@ char	*ft_strjoin(char *stack, char *buffer)
 	size_t	buffer_len;
 
 	ft_check_str(buffer);
-	stack_len = ft_strlenn(stack);
-	buffer_len = ft_strlenn(buffer);
+	stack_len = ft_strlen(stack);
+	buffer_len = ft_strlen(buffer);
 	i = -1;
 	str = malloc(stack_len + buffer_len + 2);
 	if (!str)

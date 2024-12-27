@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:33:58 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 11:51:32 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:18:22 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,53 +39,63 @@ void swap(t_link **stack)
 	*stack = second;
 }
 
-void push_a_b(t_link **stack_a,t_link **stack_b)
+void push_a_b(t_link **f_stack,t_link **s_stack)
 {
     t_link *topa;
 
-    topa = *stack_a;
-    if (*stack_a != NULL)
+    topa = *f_stack;
+    if (*f_stack != NULL)
     {
-        if((*stack_a)->next != *stack_a)
+        if((*f_stack)->next != *f_stack)
         {
-            *stack_a = (*stack_a)->next;
-            (*stack_a)->prev = topa->prev;
-            topa->prev->next = *stack_a;
+            *f_stack = (*f_stack)->next;
+            (*f_stack)->prev = topa->prev;
+            topa->prev->next = *f_stack;
         }
         else
-            *stack_a = NULL;
+            *f_stack = NULL;
         
-        change_link(stack_b, &topa);
+        change_link(s_stack, &topa, 'f');
     }
 }
 
-void    fi_lst_or_lst_fi(t_link **stack,char type)
+void    fi_lst_or_lst_fi(t_link **stack,char type, int flag)
 {
     if (type == 'f')
-        *stack = (*stack)->next;
+    {
+		*stack = (*stack)->next;
+		if (flag == 1)
+    		write(1,"ra\n",3);
+    	else if (flag == 2)
+    		write(1,"rb\n",3);
+	}
     else if (type == 'l')
+	{
         *stack = (*stack)->prev;
+		if (flag == 1)
+    		write(1,"rra\n",4);
+    	else if (flag == 2)
+    		write(1,"rrb\n",4);
+	}
     else
         return ;
-    
 }
 
 int	check_if_sort(t_link *stack)
 {
-    t_data data;
     t_link	*current;
 
+    if (!stack || stack->next == stack)
+        return (1);
 
-	if (data.num_node < 1)
-		return (1);
-	current = stack;
-	while (current->next != stack)
+    current = stack;
+    while (current->next != stack)
 	{
-		if (stack->content > stack->next->content)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
+        if (current->content > current->next->content)
+            return (0);
+        current = current->next;
+    }
+    return (1);
 }
 
 t_data	array_to_stack(t_link **stack_a,t_data data)
@@ -99,8 +109,8 @@ t_data	array_to_stack(t_link **stack_a,t_data data)
 		ft_error("Error : data.array allocation faild");
 	while (i < data.y)
 	{
-		new = create_cpy(ft_atoi(data.split[i]));
-        change_link(stack_a, &new);
+		new = ft_lstnew(ft_atoi(data.split[i]));
+        change_link(stack_a, &new, 'b');
 		data.array[i] = ft_atoi(data.split[i]);
 		i++;
 	}

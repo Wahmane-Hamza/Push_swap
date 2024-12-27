@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 14:19:52 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/26 11:44:23 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:00:07 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char	**fill_array(char const *s, char c, char **array, int i)
 	int		j;
 	char	*elem;
 
-	j = 1;
+	j = 0;
 	while (s[i])
 	{
 		k = 0;
@@ -75,10 +75,9 @@ static char	**fill_array(char const *s, char c, char **array, int i)
 
         if (!s)
             return (NULL);
-        array = (char **)malloc((count_word(s, c) + 2) * sizeof(char *));
+        array = (char **)malloc((count_word(s, c) + 1) * sizeof(char *));
         if (!array)
             return (NULL);
         i = 0;
-		array[0] = "a.out";
         return (fill_array(s, c, array, i));
     }

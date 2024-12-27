@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 15:21:48 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 11:04:29 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 15:57:39 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,25 +75,31 @@ t_data	check_all(t_data data)
 	return (data);
 }
 
-void free_stack(t_link **stack)
+int	get_min_pos(t_link *stack)
 {
-    t_link *current;
-    t_link *next_node;
+	int	i;
+	int	j;
+	int	value;
+    t_link	*current;
 
-    if (!stack || !(*stack))
-        return;
-    current = *stack;
 
-    while (1)
-    {
-        next_node = current->next;   
-        free(current);               
-        if (next_node == *stack)   
-            break;
-        current = next_node;         
-    }
-    *stack = NULL;                    
+	i = 0;
+	j = 0;
+	value = stack->content;
+	current = stack;
+	while (current->next != stack)
+	{
+		if (value > current->next->content)
+		{
+			value = current->next->content;
+			j = i + 1;
+		}
+		current = current->next;
+		i++;
+	}
+	return (j);
 }
+
 
 
 
