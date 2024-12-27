@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:53:15 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 17:30:47 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:56:28 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int sort_stack(t_data data, t_link **stack_a, t_link **stack_b)
 	}
 	else if (data.y == 3)
 	{
-		if (!check_if_sort(*stack_a))
+		if (check_if_sort(*stack_a))
 			return (0);
 		sort_3(stack_a);
 	}

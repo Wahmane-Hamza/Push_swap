@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:50:48 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 16:56:09 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:54:57 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,6 @@ int main(int ac, char **av)
         return (0);
     }	
 	data = bubble_sort(data);
-    // int j = 0 ;
-    // while (data.array[j])
-    // {
-    //     printf("data %d\n",data.array[j]);
-    //     j++;
-    // }
-    
 	sort_stack(data, &stack_a, &stack_b);
     printt(&stack_a,&stack_b);
 	exit (0);

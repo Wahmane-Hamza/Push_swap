@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 17:51:54 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 16:15:50 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:53:02 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void	check_revers(t_link **stack_a)
 	else
 		ra_rb_rra_rrb(stack_a, 'f', 1);
 }
+
 // void	*ft_strrchr(t_link **stack_a)
 // {
 // 	t_link  *break_a;
