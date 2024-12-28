@@ -8,13 +8,9 @@ OBJS = $(SRCS:%.c=%.o)
 FLAGS = -Wall -Wextra -Werror 
 NAME = push_swap
 CC = cc
-AR = ar rc
 RM = rm -f
 
 all: $(NAME)
-
-# $(NAME): $(OBJS)
-# 	$(AR) $(NAME) $(OBJS)
 
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
