@@ -77,11 +77,10 @@ t_data	check_all(t_data data)
 
 int	get_min_pos(t_link *stack)
 {
-	int	i;
-	int	j;
-	int	value;
-    t_link	*current;
-
+	int		i;
+	int		j;
+	int		value;
+	t_link	*current;
 
 	i = 0;
 	j = 0;

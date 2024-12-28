@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:53:15 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 18:08:18 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/28 17:45:42 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	sort_4_5(t_data data, t_link **stack_a, t_link **stack_b)
 	push_min(stack_a, stack_b);
 	sort_3(stack_a);
 	if (data.y == 5)
-		pa_pb(stack_b,stack_a, 1);
-	pa_pb(stack_b,stack_a, 1);
+		pa_pb(stack_b, stack_a, 1);
+	pa_pb(stack_b, stack_a, 1);
 }
 
 void	full_sort(t_data data, t_link **stack_a, t_link **stack_b)
@@ -79,13 +79,13 @@ void	full_sort(t_data data, t_link **stack_a, t_link **stack_b)
 		if ((*stack_a)->content >= data.array[i]
 			&& (*stack_a)->content <= data.array[r + i])
 		{
-			pa_pb(stack_a,stack_b, 2);
+			pa_pb(stack_a, stack_b, 2);
 			check_swap(stack_b);
 			i++;
 		}
 		else if ((*stack_a)->content < data.array[i])
 		{
-			pa_pb(stack_a,stack_b, 2);
+			pa_pb(stack_a, stack_b, 2);
 			ra_rb_rra_rrb(stack_b, 'f', 2);
 			i++;
 		}
@@ -94,9 +94,9 @@ void	full_sort(t_data data, t_link **stack_a, t_link **stack_b)
 	}
 }
 
-int sort_stack(t_data data, t_link **stack_a, t_link **stack_b)
+int	sort_stack(t_data data, t_link **stack_a, t_link **stack_b)
 {
-    if (data.y == 1)
+	if (data.y == 1)
 		return (0);
 	else if (data.y == 2)
 	{

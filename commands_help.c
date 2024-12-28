@@ -12,59 +12,59 @@
 
 #include "push_swap.h"
 
-t_link *ft_lstnew(int num)
+t_link	*ft_lstnew(int num)
 {
-    t_link *new;
+	t_link	*new;
 
-    new = malloc(sizeof(t_link));
-    if (!new)
-        ft_error("allocation lstnew faild");
-    new->content = num;
-    return (new);
+	new = malloc(sizeof(t_link));
+	if (!new)
+		ft_error("allocation lstnew faild");
+	new->content = num;
+	return (new);
 }
 
-void    change_link(t_link **stack,t_link **new, char type)
+void	change_link(t_link **stack, t_link **new, char type)
 {
-    t_link  *cup;
+	t_link	*cup;
 
-    if (*stack == NULL)
-    {
-        *stack = *new;
-        (*new)->next = *new;
-        (*new)->prev = *new;
-    }
-    else if (type == 'b')
-    {
-        (*new)->next = *stack;
-        (*new)->prev = (*stack)->prev;
-        (*stack)->prev->next = *new;
-        (*stack)->prev = *new;
-    }
-    else if (type == 'f')
-    {
-        cup = (*stack);
-        *stack = *new;
-        (*new)->next = cup;
-        (*new)->prev = cup->prev;
-        cup->prev->next = *new;
-        cup->prev = *new;
-    }
+	if (*stack == NULL)
+	{
+		*stack = *new;
+		(*new)->next = *new;
+		(*new)->prev = *new;
+	}
+	else if (type == 'b')
+	{
+		(*new)->next = *stack;
+		(*new)->prev = (*stack)->prev;
+		(*stack)->prev->next = *new;
+		(*stack)->prev = *new;
+	}
+	else if (type == 'f')
+	{
+		cup = (*stack);
+		*stack = *new;
+		(*new)->next = cup;
+		(*new)->prev = cup->prev;
+		cup->prev->next = *new;
+		cup->prev = *new;
+	}
 }
 
 t_link	*last(t_link *stack)
 {
 	t_link	*current;
-    t_data data;
+	t_data	data;
 
 	if (!stack)
 		return (NULL);
 	current = stack;
-    data.lstsize = 0;
+	data.lstsize = 0;
 	while (current->next != stack)
-    {
+	{
 		current = current->next;
-        data.lstsize++;
-    }
+		data.lstsize++;
+	}
 	return (current);
 }
 

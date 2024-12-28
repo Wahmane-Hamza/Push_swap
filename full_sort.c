@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 16:03:05 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/28 15:59:57 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/28 17:46:49 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	lstsize(t_link *lst)
 {
-	int	i;
-    t_link *list_break;
+	int		i;
+	t_link	*list_break ;
 
 	i = 0;
-    list_break = lst;
+	list_break = lst;
 	while (list_break != lst->next)
 	{
 		i++;
@@ -31,12 +31,12 @@ t_data	find_max(t_link *stack)
 {
 	int		i;
 	t_data	data;
-    t_link  *start;
+	t_link	*start;
 
 	i = 0;
 	data.mpos = 0;
 	data.max = (stack)->content;
-    start = stack;
+	start = stack;
 	if (lstsize(stack) >= 2)
 	{
 		while (stack->next != start)
@@ -60,7 +60,6 @@ void	last_sort(t_link **stack_a, t_link **stack_b, t_data data)
 	{
 		while (data.max != (*stack_b)->content)
 			ra_rb_rra_rrb(stack_b, 'f', 2);
-
 	}
 	else
 		while (data.max != (*stack_b)->content)

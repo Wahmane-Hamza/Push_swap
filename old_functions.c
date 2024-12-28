@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-// void *add_to_a(t_link **stack_a, int argc, char **argv) 
+// void *add_to_a(t_link **stack_a, int argc, char **argv)
 // {
 //     t_link *new;
 //     t_data  data;
@@ -39,18 +39,18 @@
 //     t_link *next_node;
 
 //     if (!stack || !(*stack))
-//         return;
+//         return ;
 //     current = *stack;
 
 //     while (1)
 //     {
-//         next_node = current->next;   
-//         free(current);               
-//         if (next_node == *stack)   
-//             break;
-//         current = next_node;         
+//         next_node = current->next;
+//         free(current);
+//         if (next_node == *stack)
+//             break ;
+//         current = next_node;
 //     }
-//     *stack = NULL;                    
+//     *stack = NULL;
 // }
 
 // void    *check_int(char *argv)
@@ -58,7 +58,7 @@
 //     int j;
 
 //     j = 0;
-//     while (argv[j]) 
+//     while (argv[j])
 //     {
 //         if (argv[j] < '0' || argv[j] > '9')
 //             return (NULL);

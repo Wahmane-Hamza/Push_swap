@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 18:52:28 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/28 16:02:58 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/28 17:46:11 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,6 @@ int	ft_atoi(const char *str)
 	}
 	if (str[data.i])
 		ft_error("Error\n");
-
-
-	
 	data.result *= data.sign;
 	if (data.result > 2147483647 || data.result < -2147483648)
 		ft_error("Error\n");
@@ -59,9 +56,9 @@ char	*ft_strdup(char *s1)
 {
 	char	*dst;
 	size_t	i;
-    int     s_len;
+	int		s_len;
 
-    s_len = ft_strlen(s1);
+	s_len = ft_strlen(s1);
 	dst = (char *)malloc(s_len + 1);
 	if (!dst)
 		return (NULL);
@@ -77,29 +74,29 @@ char	*ft_strdup(char *s1)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*ptr;
-	size_t			src_len;
-	size_t			substr_len;
-    size_t			i;
+	char	*ptr;
+	size_t	src_len;
+	size_t	substr_len;
+	size_t	i;
 
 	if (!s)
 		return (NULL);
-    src_len = ft_strlen(s);
+	src_len = ft_strlen(s);
 	if (start >= src_len)
 		return (ft_strdup(""));
 	substr_len = src_len - start;
 	if (substr_len > len)
 		substr_len = len;
-	ptr = (char *) malloc(substr_len + 1);
-	if (!ptr) return (NULL);
-    i = 0;
+	ptr = (char *)malloc(substr_len + 1);
+	if (!ptr)
+		return (NULL);
+	i = 0;
 	while (i < substr_len && s[i])
 	{
 		ptr[i] = s[start + i];
 		i++;
 	}
 	ptr[i] = '\0';
-	
 	return ((char *)ptr);
 }
 

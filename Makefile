@@ -6,15 +6,18 @@ SRCS = push_swap.c push_swap_commands.c push_swap_commands2.c \
 OBJS = $(SRCS:%.c=%.o)
 
 FLAGS = -Wall -Wextra -Werror 
-NAME = push_swap.a
+NAME = push_swap
 CC = cc
 AR = ar rc
 RM = rm -f
 
 all: $(NAME)
 
+# $(NAME): $(OBJS)
+# 	$(AR) $(NAME) $(OBJS)
+
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c ft_printf.h
 	$(CC) $(FLAGS) -I. -c $< -o $@

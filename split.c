@@ -35,7 +35,7 @@ static char	**free_array(char **array, int j)
 		j--;
 		free(array[j]);
 	}
-	free (array);
+	free(array);
 	return (NULL);
 }
 
@@ -68,16 +68,16 @@ static char	**fill_array(char const *s, char c, char **array, int i)
 	return (array);
 }
 
-    char	**ft_split(char const *s, char c)
-    {
-        char	**array;
-        int		i;
+char	**ft_split(char const *s, char c)
+{
+	char	**array;
+	int		i;
 
-        if (!s)
-            return (NULL);
-        array = (char **)malloc((count_word(s, c) + 1) * sizeof(char *));
-        if (!array)
-            return (NULL);
-        i = 0;
-        return (fill_array(s, c, array, i));
-    }
+	if (!s)
+		return (NULL);
+	array = (char **)malloc((count_word(s, c) + 1) * sizeof(char *));
+	if (!array)
+		return (NULL);
+	i = 0;
+	return (fill_array(s, c, array, i));
+}
