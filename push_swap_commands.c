@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:33:58 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 18:30:25 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/28 16:02:23 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void    rr_rrr(t_link **stack_a,t_link **stack_b,char type,int flag)
         ft_error("ERROR STACK_A OR STACK_B EMPTY");
     fi_lst_or_lst_fi(stack_a, type, 0);
     fi_lst_or_lst_fi(stack_b, type, 0);
-    if (type = 'f' && flag == 1)
+    if (type == 'f' && flag == 1)
         write(1,"rr\n",3);
-    else if (type = 'l' && flag == 1)
+    else if (type == 'l' && flag == 1)
         write(1,"rrr\n",3);
 }

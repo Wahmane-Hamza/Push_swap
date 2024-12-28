@@ -6,11 +6,26 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 16:03:05 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 18:05:23 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/28 15:59:57 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	lstsize(t_link *lst)
+{
+	int	i;
+    t_link *list_break;
+
+	i = 0;
+    list_break = lst;
+	while (list_break != lst->next)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i + 1);
+}
 
 t_data	find_max(t_link *stack)
 {
@@ -38,24 +53,8 @@ t_data	find_max(t_link *stack)
 	return (data);
 }
 
-int	lstsize(t_link *lst)
-{
-	int	i;
-    t_link *list_break;
-
-	i = 0;
-    list_break = lst;
-	while (list_break != lst->next)
-	{
-		i++;
-		lst = lst -> next;
-	}
-	return (i);
-}
-
 void	last_sort(t_link **stack_a, t_link **stack_b, t_data data)
 {
-    // printf("max %d\n",data.max);
 	data = find_max(*stack_b);
 	if (data.mpos <= (lstsize(*stack_b) / 2))
 	{
