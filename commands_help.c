@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 17:51:54 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/27 18:23:26 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/29 18:48:30 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_link	*ft_lstnew(int num)
 
 	new = malloc(sizeof(t_link));
 	if (!new)
-		ft_error("allocation lstnew faild");
+		return (NULL);
 	new->content = num;
 	return (new);
 }
@@ -68,7 +68,7 @@ t_link	*last(t_link *stack)
 	return (current);
 }
 
-void	ft_check_str(char *str)
+void	ft_check_str(char *str, int error)
 {
 	int	i;
 	int	x;
@@ -82,7 +82,7 @@ void	ft_check_str(char *str)
 		i++;
 	}
 	if (x == 0)
-		ft_error("Error\n");
+		ft_error("Error\n" , error);
 }
 
 void	check_revers(t_link **stack_a)

@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:33:58 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/28 16:02:23 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/29 18:38:34 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	sa_sb(t_link **stack, int flag)
 {
-	if (!(*stack))
-		ft_error("ERROR STACK EMPTY");
 	if (flag == 1)
 		write(1, "sa\n", 3);
 	else if (flag == 2)
@@ -23,18 +21,16 @@ void	sa_sb(t_link **stack, int flag)
 	swap(stack);
 }
 
-void	ss(t_link **stack_a, t_link **stack_b)
+void	ss(t_link **stack_a, t_link **stack_b, int flag)
 {
-	if (!(*stack_a) || !(*stack_b))
-		ft_error("ERROR STACK_A OR STACK_B EMPTY");
+	if (flag == 1)
+		write(1, "ss\n", 3);
 	swap(stack_a);
 	swap(stack_b);
 }
 
 void	pa_pb(t_link **first, t_link **second, int flag)
 {
-	if (!(*first))
-		ft_error("ERROR STACK_A OR STACK_B EMPTY");
 	if (flag == 1)
 		write(1, "pa\n", 3);
 	else if (flag == 2)
@@ -44,15 +40,11 @@ void	pa_pb(t_link **first, t_link **second, int flag)
 
 void	ra_rb_rra_rrb(t_link **stack, char type, int flag)
 {
-	if (!(stack))
-		ft_error("ERROR STACK EMPTY");
 	fi_lst_or_lst_fi(stack, type, flag);
 }
 
 void	rr_rrr(t_link **stack_a, t_link **stack_b, char type, int flag)
 {
-	if (!(stack_a) || !(stack_b))
-		ft_error("ERROR STACK_A OR STACK_B EMPTY");
 	fi_lst_or_lst_fi(stack_a, type, 0);
 	fi_lst_or_lst_fi(stack_b, type, 0);
 	if (type == 'f' && flag == 1)

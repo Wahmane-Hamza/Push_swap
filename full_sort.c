@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 16:03:05 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/28 17:46:49 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/29 17:40:24 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ int	lstsize(t_link *lst)
 	int		i;
 	t_link	*list_break ;
 
+
+	if (!lst)
+		return (0);
 	i = 0;
 	list_break = lst;
 	while (list_break != lst->next)

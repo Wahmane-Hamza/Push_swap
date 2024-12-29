@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 14:16:44 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/29 18:53:37 by hwahmane         ###   ########.fr       */
+/*   Created: 2024/12/29 15:44:13 by hwahmane          #+#    #+#             */
+/*   Updated: 2024/12/29 18:55:26 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line_bonus.h"
 
 typedef struct s_link
 {
@@ -93,5 +94,6 @@ void				check_swap(t_link **stack);
 t_data				find_max(t_link *stack);
 void				last_sort(t_link **stack_a, t_link **stack_b, t_data data);
 int					get_rang(t_data data);
+
 
 #endif
