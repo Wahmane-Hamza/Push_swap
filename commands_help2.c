@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 15:21:48 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/29 18:54:10 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/29 20:19:16 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void	ft_error(char *str, int error)
 	exit(1);
 }
 
-t_data	put_on_it(char **av)
+t_data	put_on_it(char **av, t_data	data)
 {
-	t_data	data;
 	int		i;
 
 	i = 1;

@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:16:21 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/29 18:55:49 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/29 20:18:59 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	data.error = 1;
 	stack_a = NULL;
 	stack_b = NULL;
-	data = put_on_it(av);
+	data = put_on_it(av, data);
 	data = array_to_stack(&stack_a, data);
 	if (check_if_sort(stack_a))
 		return (0);

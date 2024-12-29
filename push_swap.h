@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:16:44 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/29 18:53:37 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/29 20:19:54 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void				check_revers(t_link **stack_a);
 
 // commands help 2
 void				ft_error(char *str, int error);
-t_data				put_on_it(char **av);
+t_data				put_on_it(char **av, t_data data);
 void				check_long(char *str, int error);
 t_data				check_all(t_data data);
 int					get_min_pos(t_link *stack);
