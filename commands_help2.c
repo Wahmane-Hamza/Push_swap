@@ -36,7 +36,7 @@ t_data	put_on_it(char **av)
 	return (data);
 }
 
-void	check_long(char *str,int error)
+void	check_long(char *str, int error)
 {
 	int	o;
 	int	i;

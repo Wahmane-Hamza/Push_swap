@@ -82,7 +82,7 @@ void	ft_check_str(char *str, int error)
 		i++;
 	}
 	if (x == 0)
-		ft_error("Error\n" , error);
+		ft_error("Error\n", error);
 }
 
 void	check_revers(t_link **stack_a)

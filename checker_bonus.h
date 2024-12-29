@@ -13,10 +13,10 @@
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
 
+# include "get_next_line_bonus.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "get_next_line_bonus.h"
 
 typedef struct s_link
 {
@@ -67,9 +67,9 @@ void				ft_check_str(char *str, int error);
 void				check_revers(t_link **stack_a);
 
 // commands help 2
-void				ft_error(char *str,int error);
+void				ft_error(char *str, int error);
 t_data				put_on_it(char **av);
-void				check_long(char *str,int error);
+void				check_long(char *str, int error);
 t_data				check_all(t_data data);
 int					get_min_pos(t_link *stack);
 
@@ -94,6 +94,5 @@ void				check_swap(t_link **stack);
 t_data				find_max(t_link *stack);
 void				last_sort(t_link **stack_a, t_link **stack_b, t_data data);
 int					get_rang(t_data data);
-
 
 #endif
