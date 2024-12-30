@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 15:43:11 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/30 13:37:20 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/30 18:52:43 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	comp(char *oper, char *str)
 	return (1);
 }
 
-void	apply_operation(char *oper, t_link **stack_a, t_link **stack_b)
+void	apply_operation(char *oper, t_data data, t_link **stack_a, t_link **stack_b)
 {
 	if (comp(oper, "sa\n"))
 		sa_sb(stack_a, 0);
@@ -50,6 +50,11 @@ void	apply_operation(char *oper, t_link **stack_a, t_link **stack_b)
 		rr_rrr(stack_a, stack_a, 'f', 0);
 	else if (comp(oper, "rrr\n"))
 		rr_rrr(stack_a, stack_a, 'l', 0);
+	else
+	{
+		free(oper);
+		ft_error("Error\n", data, stack_a, stack_b);
+	}
 }
 
 int	main(int ac, char **av)
@@ -63,13 +68,12 @@ int	main(int ac, char **av)
 		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
-	data = put_on_it(av);
-	data = array_to_stack(&stack_a, data);
+	data = put_on_it(av, &stack_a, &stack_b);
+	data = array_to_stack(&stack_a, &stack_b, data);
 	oper = get_next_line(0);
 	while (oper)
 	{
-		write(1, oper, ft_strlen(oper));
-		apply_operation(oper, &stack_a, &stack_b);
+		apply_operation(oper, data, &stack_a, &stack_b);
 		free(oper);
 		oper = get_next_line(0);
 	}
@@ -77,5 +81,6 @@ int	main(int ac, char **av)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+	free_all(data, &stack_a, &stack_b);
 	exit(0);
 }

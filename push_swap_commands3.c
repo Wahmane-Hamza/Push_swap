@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 18:32:47 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/29 20:35:32 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:47:28 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,28 @@ t_data	bubble_sort(t_data data)
 		i++;
 	}
 	return (data);
+}
+
+void free_all(t_data data, t_link **stack_a, t_link **stack_b)
+{
+	int	i;
+
+	if (stack_a)
+		free_stack(stack_a);
+	if (stack_b)
+		free_stack(stack_b);
+    if (data.array)
+        free(data.array);
+    if (data.args)
+		free(data.args);
+    if (data.split)
+	{
+		int i = 0;
+		while (data.split[i])
+		{
+			free(data.split[i]);
+			i++;
+		}
+		free(data.split);
+	}
 }

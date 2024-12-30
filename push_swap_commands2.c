@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 11:51:17 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/30 13:37:39 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:49:09 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	check_if_sort(t_link *stack)
 	return (1);
 }
 
-t_data	array_to_stack(t_link **stack_a, t_data data)
+t_data	array_to_stack(t_link **stack_a, t_link **stack_b, t_data data)
 {
 	int		i;
 	t_link	*new;
@@ -104,13 +104,17 @@ t_data	array_to_stack(t_link **stack_a, t_data data)
 	i = 0;
 	data.array = malloc(data.y * sizeof(int));
 	if (!data.array)
-		ft_error("Error : data.array allocation faild");
+		ft_error("Error : data.array allocation faild",data, stack_a, stack_b);
 	while (i < data.y)
 	{
-		new = ft_lstnew(ft_atoi(data.split[i]));
+		new = ft_lstnew(ft_atoi(data.split[i], data, stack_a, stack_b));
 		change_link(stack_a, &new, 'b');
-		data.array[i] = ft_atoi(data.split[i]);
+		data.array[i] = ft_atoi(data.split[i], data, stack_a, stack_b);
+		free(data.split[i]);
+		data.split[i] = NULL;
 		i++;
 	}
+	free(data.split);
+	data.split = NULL;
 	return (data);
 }
