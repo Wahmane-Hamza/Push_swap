@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 11:51:17 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/29 18:55:02 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:37:39 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,12 @@ t_data	array_to_stack(t_link **stack_a, t_data data)
 	i = 0;
 	data.array = malloc(data.y * sizeof(int));
 	if (!data.array)
-		ft_error("Error : data.array allocation faild", data.error);
+		ft_error("Error : data.array allocation faild");
 	while (i < data.y)
 	{
-		new = ft_lstnew(ft_atoi(data.split[i], data.error));
+		new = ft_lstnew(ft_atoi(data.split[i]));
 		change_link(stack_a, &new, 'b');
-		data.array[i] = ft_atoi(data.split[i], data.error);
+		data.array[i] = ft_atoi(data.split[i]);
 		i++;
 	}
 	return (data);

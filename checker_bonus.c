@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 15:43:11 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/29 20:20:52 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:37:20 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,9 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
-	data.error = 0;
 	stack_a = NULL;
 	stack_b = NULL;
-	data = put_on_it(av, data);
+	data = put_on_it(av);
 	data = array_to_stack(&stack_a, data);
 	oper = get_next_line(0);
 	while (oper)

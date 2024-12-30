@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 18:52:28 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/29 18:50:28 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:34:32 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-int	ft_atoi(const char *str, int error)
+int	ft_atoi(const char *str)
 {
 	t_data	data;
 
@@ -32,7 +32,7 @@ int	ft_atoi(const char *str, int error)
 	data.sign = 1;
 	data.result = 0;
 	if ((str[0] == '-' && str[1] == '\0') || (str[0] == '+' && str[1] == '\0'))
-		ft_error("Error\n", error);
+		ft_error("Error\n");
 	if (str[data.i] == '-' || str[data.i] == '+')
 	{
 		if (str[data.i] == '-')
@@ -45,10 +45,10 @@ int	ft_atoi(const char *str, int error)
 		data.i++;
 	}
 	if (str[data.i])
-		ft_error("Error\n", error);
+		ft_error("Error\n");
 	data.result *= data.sign;
 	if (data.result > 2147483647 || data.result < -2147483648)
-		ft_error("Error\n", error);
+		ft_error("Error\n");
 	return (data.result);
 }
 
@@ -100,7 +100,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return ((char *)ptr);
 }
 
-char	*ft_strjoin(char *stack, char *buffer, int error)
+char	*ft_strjoin(char *stack, char *buffer)
 {
 	char	*str;
 	size_t	j;
@@ -108,7 +108,7 @@ char	*ft_strjoin(char *stack, char *buffer, int error)
 	size_t	stack_len;
 	size_t	buffer_len;
 
-	ft_check_str(buffer, error);
+	ft_check_str(buffer);
 	stack_len = ft_strlen(stack);
 	buffer_len = ft_strlen(buffer);
 	i = -1;

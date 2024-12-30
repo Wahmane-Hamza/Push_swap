@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:16:44 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/29 20:19:54 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:37:09 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,12 @@ t_data				bubble_sort(t_data data);
 t_link				*ft_lstnew(int num);
 void				change_link(t_link **stack, t_link **new, char type);
 t_link				*last(t_link *stack);
-void				ft_check_str(char *str, int error);
+void				ft_check_str(char *str);
 void				check_revers(t_link **stack_a);
 
 // commands help 2
-void				ft_error(char *str, int error);
-t_data				put_on_it(char **av, t_data data);
-void				check_long(char *str, int error);
+void				ft_error(char *str);
+t_data				put_on_it(char **av);
 t_data				check_all(t_data data);
 int					get_min_pos(t_link *stack);
 
@@ -76,8 +75,8 @@ int					get_min_pos(t_link *stack);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strdup(char *s1);
 size_t				ft_strlen(const char *str);
-int					ft_atoi(const char *str, int error);
-char				*ft_strjoin(char *stack, char *buffer, int error);
+int					ft_atoi(const char *str);
+char				*ft_strjoin(char *stack, char *buffer);
 char				**ft_split(char const *s, char c);
 
 // algo
