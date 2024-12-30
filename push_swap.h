@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:16:44 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/30 13:37:09 by hwahmane         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:38:24 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_data
 	int				*array;
 	int				mpos;
 	int				max;
-	int				error;
 }					t_data;
 
 // push swap commands
