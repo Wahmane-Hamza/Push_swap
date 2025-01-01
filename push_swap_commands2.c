@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 11:51:17 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/30 16:49:09 by hwahmane         ###   ########.fr       */
+/*   Updated: 2025/01/01 15:43:35 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	push_a_b(t_link **f_stack, t_link **s_stack)
 
 void	fi_lst_or_lst_fi(t_link **stack, char type, int flag)
 {
+	if (!stack || !(*stack))
+		return ;
 	if (type == 'f')
 	{
 		*stack = (*stack)->next;
