@@ -13,7 +13,7 @@ OBJS = $(SRCS:%.c=%.o)
 
 BOBJS = $(BSRCS:%.c=%.o)
 
-FLAGS = -Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 BNAME = checker
 CC = cc
@@ -30,6 +30,9 @@ $(NAME): $(OBJS)
 $(BNAME): $(BOBJS)
 	$(CC) $(FLAGS) $(BOBJS) -o $(BNAME)
 
+%.o:%.c
+	$(CC) $(FLAGS) -c $< -o $@
+
 clean:
 	$(RM) $(OBJS) $(BOBJS)
 
@@ -39,3 +42,4 @@ fclean: clean
 re: fclean all bonus
 
 .PHONY: all clean fclean re
+
