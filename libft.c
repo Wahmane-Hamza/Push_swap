@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 18:52:28 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/30 16:08:53 by hwahmane         ###   ########.fr       */
+/*   Updated: 2025/01/01 14:58:57 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return ((char *)ptr);
 }
 
-char	*ft_strjoin(char *stack, char *buffer, t_data data, t_link **stack_a, t_link **stack_b)
+char	*ft_strjoin(char *buffer, t_data data, t_link **stack_a,
+		t_link **stack_b)
 {
 	char	*str;
 	size_t	j;
@@ -107,19 +108,19 @@ char	*ft_strjoin(char *stack, char *buffer, t_data data, t_link **stack_a, t_lin
 	size_t	buffer_len;
 
 	ft_check_str(buffer, data, stack_a, stack_b);
-	stack_len = ft_strlen(stack);
+	stack_len = ft_strlen(data.args);
 	buffer_len = ft_strlen(buffer);
 	i = -1;
 	str = malloc(stack_len + buffer_len + 2);
 	if (!str)
 		return (NULL);
-	while (++i < stack_len && stack)
-		str[i] = stack[i];
+	while (++i < stack_len && data.args)
+		str[i] = data.args[i];
 	str[i] = '\0';
 	j = -1;
 	while (++j < buffer_len)
 		str[i + j] = buffer[j];
 	str[i + j] = ' ';
 	str[i + j + 1] = '\0';
-	return (free(stack), str);
+	return (free(data.args), str);
 }

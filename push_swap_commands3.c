@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 18:32:47 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/30 16:47:28 by hwahmane         ###   ########.fr       */
+/*   Updated: 2025/01/01 15:02:52 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_data	bubble_sort(t_data data)
 	return (data);
 }
 
-void free_all(t_data data, t_link **stack_a, t_link **stack_b)
+void	free_all(t_data data, t_link **stack_a, t_link **stack_b)
 {
 	int	i;
 
@@ -45,13 +45,13 @@ void free_all(t_data data, t_link **stack_a, t_link **stack_b)
 		free_stack(stack_a);
 	if (stack_b)
 		free_stack(stack_b);
-    if (data.array)
-        free(data.array);
-    if (data.args)
+	if (data.array)
+		free(data.array);
+	if (data.args)
 		free(data.args);
-    if (data.split)
+	if (data.split)
 	{
-		int i = 0;
+		i = 0;
 		while (data.split[i])
 		{
 			free(data.split[i]);

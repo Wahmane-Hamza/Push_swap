@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:16:44 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/30 16:28:18 by hwahmane         ###   ########.fr       */
+/*   Updated: 2025/01/01 14:59:24 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,26 @@ void				rr_rrr(t_link **stack_a, t_link **stack_b, char type,
 // push swap commands 2
 void				push_a_b(t_link **f_stack, t_link **s_stack);
 void				swap(t_link **first);
-t_data				array_to_stack(t_link **stack_a, t_link **stack_b, t_data data);
+t_data				array_to_stack(t_link **stack_a, t_link **stack_b,
+						t_data data);
 void				fi_lst_or_lst_fi(t_link **stack, char type, int flag);
 int					check_if_sort(t_link *stack);
 
 // push swap commands 3
 t_data				bubble_sort(t_data data);
-void 				free_all(t_data data, t_link **stack_a, t_link **stack_b);
+void				free_all(t_data data, t_link **stack_a, t_link **stack_b);
 
 // commands help
 t_link				*ft_lstnew(int num);
 void				change_link(t_link **stack, t_link **new, char type);
 t_link				*last(t_link *stack);
-void				ft_check_str(char *str, t_data data, t_link **stack_a, t_link **stack_b);
+void				ft_check_str(char *str, t_data data, t_link **stack_a,
+						t_link **stack_b);
 void				check_revers(t_link **stack_a);
 
 // commands help 2
-void				ft_error(char *str, t_data data, t_link **stack_a, t_link **stack_b);
+void				ft_error(char *str, t_data data, t_link **stack_a,
+						t_link **stack_b);
 t_data				put_on_it(char **av, t_link **stack_a, t_link **stack_b);
 t_data				check_all(t_data data, t_link **stack_a, t_link **stack_b);
 int					get_min_pos(t_link *stack);
@@ -76,8 +79,10 @@ void				free_stack(t_link **stack);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strdup(char *s1);
 size_t				ft_strlen(const char *str);
-int	ft_atoi(const char *str, t_data data, t_link **stack_a, t_link **stack_b);
-char				*ft_strjoin(char *stack, char *buffer, t_data data, t_link **stack_a, t_link **stack_b);
+int					ft_atoi(const char *str, t_data data, t_link **stack_a,
+						t_link **stack_b);
+char				*ft_strjoin(char *buffer, t_data data,
+						t_link **stack_a, t_link **stack_b);
 char				**ft_split(char const *s, char c);
 
 // algo

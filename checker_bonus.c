@@ -6,7 +6,7 @@
 /*   By: hwahmane <hwahmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 15:43:11 by hwahmane          #+#    #+#             */
-/*   Updated: 2024/12/30 18:52:43 by hwahmane         ###   ########.fr       */
+/*   Updated: 2025/01/01 15:07:04 by hwahmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,15 @@ int	comp(char *oper, char *str)
 	return (1);
 }
 
-void	apply_operation(char *oper, t_data data, t_link **stack_a, t_link **stack_b)
+void	free_and_exit(char *oper, t_data data, t_link **stack_a,
+		t_link **stack_b)
+{
+	free(oper);
+	ft_error("Error\n", data, stack_a, stack_b);
+}
+
+void	apply_operation(char *oper, t_data data, t_link **stack_a,
+		t_link **stack_b)
 {
 	if (comp(oper, "sa\n"))
 		sa_sb(stack_a, 0);
@@ -51,10 +59,7 @@ void	apply_operation(char *oper, t_data data, t_link **stack_a, t_link **stack_b
 	else if (comp(oper, "rrr\n"))
 		rr_rrr(stack_a, stack_a, 'l', 0);
 	else
-	{
-		free(oper);
-		ft_error("Error\n", data, stack_a, stack_b);
-	}
+		free_and_exit(oper, data, stack_a, stack_b);
 }
 
 int	main(int ac, char **av)

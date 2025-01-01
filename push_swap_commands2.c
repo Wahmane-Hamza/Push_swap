@@ -104,7 +104,7 @@ t_data	array_to_stack(t_link **stack_a, t_link **stack_b, t_data data)
 	i = 0;
 	data.array = malloc(data.y * sizeof(int));
 	if (!data.array)
-		ft_error("Error : data.array allocation faild",data, stack_a, stack_b);
+		ft_error("Error : data.array allocation faild", data, stack_a, stack_b);
 	while (i < data.y)
 	{
 		new = ft_lstnew(ft_atoi(data.split[i], data, stack_a, stack_b));

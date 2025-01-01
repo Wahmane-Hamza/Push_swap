@@ -25,11 +25,11 @@ int	main(int ac, char **av)
 	data = put_on_it(av, &stack_a, &stack_a);
 	data = array_to_stack(&stack_a, &stack_b, data);
 	if (check_if_sort(stack_a))
-    {
-        free_stack(&stack_a);
-        free(data.array);
-        return (0);
-    }
+	{
+		free_stack(&stack_a);
+		free(data.array);
+		return (0);
+	}
 	data = bubble_sort(data);
 	sort_stack(data, &stack_a, &stack_b);
 	free_all(data, &stack_a, &stack_b);
